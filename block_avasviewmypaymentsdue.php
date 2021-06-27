@@ -69,7 +69,7 @@ class block_avasviewmypaymentsdue extends block_list {
         if (json_last_error() != JSON_ERROR_NONE)
         {
             // error in json_decode, log variable and set array to blank
-            error_log('string variable json_notags is not proper JSON: ' . $json_notags);
+            // error_log('string variable json_notags is not proper JSON: ' . $json_notags);
             $payments_arr = [];
         }
         // This is how some sample data looks like
