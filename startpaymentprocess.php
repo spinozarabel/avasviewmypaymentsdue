@@ -14,7 +14,7 @@ $payee          = required_param('payee',       PARAM_TEXT);
 $fees_for       = required_param('fees_for',    PARAM_TEXT);
 $ay             = required_param('ay',          PARAM_TEXT);
 
-echo nl2br("Initiate the payment process for the item shown below: \n");
+echo nl2br("Initiate the payment process for the item shown below or Cancel: \n");
 
 
 require_login();
@@ -45,7 +45,55 @@ echo nl2br(     "Amount (Rs): " . htmlspecialchars($amount)     .
                 "  For AY: "    . htmlspecialchars($ay)         . 
                 "\n");
         
+class paymentprocess_form extends moodleform 
+{
 
+        public function definition() 
+        {
+                global $COURSE;
+        
+                $mform =& $this->_form;
+        
+                $mform->addElement('hidden', 'amount',          $this->_customdata['amount']);
+                $mform->addElement('hidden', 'payee',           $this->_customdata['payee']);
+                $mform->addElement('hidden', 'fees_for',        $this->_customdata['fees_for']);
+                $mform->addElement('hidden', 'ay',              $this->_customdata['ay']);
+        
+                $buttons = array();
+                $buttons[] =& $mform->createElement('submit', 'Start Payment', 'Start Payment Process');
+                $buttons[] =& $mform->createElement('cancel');
+        
+                $mform->addGroup($buttons, 'buttons', get_string('actions'), array(' '), false);
+        }
+}
+
+$form = new \paymentprocess_form(null, ['amount'        => $amount, 
+                                        'payee'         => $payee,
+                                        'fees_for'      => $fees_for,
+                                        'ay'            => $ay,
+                                       ]);
+if ($form->is_cancelled()) 
+{
+        redirect(new \moodle_url('/my'));
+} 
+else if ($formdata = $form->get_data()) 
+{
+        $amount         = $formdata->amount;
+        $payee          = $formdata->payee;
+        $fees_for       = $formdata->fees_for;
+        $ay             = $formdata->ay;
+}
+
+echo \html_writer::start_tag('div', ['class' => 'no-overflow']);
+$form->display();
+echo \html_writer::end_tag('div');
+
+
+
+echo $OUTPUT->footer();
+
+
+                    
 
 
 
