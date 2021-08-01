@@ -13,8 +13,6 @@ require_login();
 
 global $CFG, $PAGE, $DB, $USER;
 
-/*
-
 $context = context_system::instance();
 $PAGE->set_context($context);
 
@@ -30,7 +28,6 @@ $PAGE->navbar->add('Initiate Payment Process of selected payment');
 
 echo $OUTPUT->header();
 
-*/
 
 $amount     = $_POST['amount'];
 $payee      = $_POST['payee'];
