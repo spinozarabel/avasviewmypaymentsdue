@@ -82,6 +82,7 @@ else if ($formdata = $form->get_data())
         $payee          = $formdata->payee;
         $fees_for       = $formdata->fees_for;
         $ay             = $formdata->ay;
+        redirect(new \moodle_url('/my'));
 }
 
 echo \html_writer::start_tag('div', ['class' => 'no-overflow']);
