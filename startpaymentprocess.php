@@ -78,10 +78,7 @@ if ($form->is_cancelled())
 } 
 else if ($formdata = $form->get_data()) 
 {
-        $amount         = $formdata->amount;
-        $payee          = $formdata->payee;
-        $fees_for       = $formdata->fees_for;
-        $ay             = $formdata->ay;
+        error_log(print_r($formdata,true));
         redirect(new \moodle_url('/my'));
 }
 
