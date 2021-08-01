@@ -24,20 +24,15 @@ $PAGE->set_context($context);
 $PAGE->set_pagelayout('incourse');
 $PAGE->set_title('Initiate Payment Process of selected payment');
 $PAGE->set_heading("Initiate Payment Process");
-$PAGE->set_url('/blocks/avasviewmypaymentsdue/startpaymentprocess.php', ['amount'   => $_POST['amount'], 
-                                                                         'payee'    => $_POST['payee'],
-                                                                         'fees_for' => $_POST['fees_for'],
-                                                                         'ay'       => $_POST['ay'],
+$PAGE->set_url('/blocks/avasviewmypaymentsdue/startpaymentprocess.php', ['amount'   => $amount, 
+                                                                         'payee'    => $payee,
+                                                                         'fees_for' => $fees_for,
+                                                                         'ay'       => $ay,
                                                                         ]);
 $PAGE->navbar->add('Initiate Payment Process of selected payment');
 
 echo $OUTPUT->header();
 
-
-$amount     = $_POST['amount'];
-$payee      = $_POST['payee'];
-$fees_for   = $_POST['fees_for'];
-$ay         = $_POST['ay'];
 
 echo "Initiate the payment process for the item shown below: \n";
 
