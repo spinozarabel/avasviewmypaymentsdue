@@ -72,8 +72,8 @@ else if ($formdata = $form->get_data())
         redirect(new \moodle_url('/my'));
 }
 
+// We now print all stuff including the form. This is because we have to setup all redirects above before any output
 echo $OUTPUT->header();
-
 
 echo nl2br("Initiate the payment process for the item shown below: \n");
 
@@ -83,6 +83,7 @@ echo nl2br(     "Amount (Rs): " . htmlspecialchars($amount)     .
                 "  For AY: "    . htmlspecialchars($ay)         . 
                 "\n");
 
+// now print out the form
 echo \html_writer::start_tag('div', ['class' => 'no-overflow']);
 $form->display();
 echo \html_writer::end_tag('div');
