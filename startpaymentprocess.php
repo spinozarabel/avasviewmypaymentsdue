@@ -4,7 +4,7 @@
  * T
  */
 
-defined('MOODLE_INTERNAL') || die();
+// defined('MOODLE_INTERNAL') || die();
 
 // require_once('../../config.php');
 // require_once($CFG->libdir . '/formslib.php');
