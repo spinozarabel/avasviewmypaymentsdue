@@ -87,7 +87,7 @@ class block_avasviewmypaymentsdue extends block_list {
                 $fees_for   = $payment["fees_for"];
                 $ay         = $payment["ay"];
 
-                $linkurl    = "/blocks/avasviewmypaymentsdue/startpaymentprocess.php";
+                $linkurl    = "/moodle/blocks/avasviewmypaymentsdue/startpaymentprocess.php";
                 $linkurl   .= "?amount=" . $amount . "&payee=" . $payee . "&fees_for=" . $fees_for . "&ay=" . $ay;
                 $linkname   = "Payment Due: ". $amount;
                 $attrs      = ['alt' => $linkname];
