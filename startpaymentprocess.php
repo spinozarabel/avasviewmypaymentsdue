@@ -14,7 +14,7 @@ $payee          = required_param('payee',       PARAM_TEXT);
 $fees_for       = required_param('fees_for',    PARAM_TEXT);
 $ay             = required_param('ay',          PARAM_TEXT);
 
-echo "Initiate the payment process for the item shown below: \n";
+echo nl2br("Initiate the payment process for the item shown below: \n");
 
 
 require_login();
@@ -37,13 +37,13 @@ $PAGE->navbar->add('Initiate Payment Process of selected payment');
 echo $OUTPUT->header();
 
 
-echo "Initiate the payment process for the item shown below: \n";
+echo nl2br("Initiate the payment process for the item shown below: \n";
 
 echo    "Amount (Rs): " . htmlspecialchars($amount)     . 
         "  Payee: "     . htmlspecialchars($payee)      . 
         "  Fee for: "   . htmlspecialchars($fees_for)   . 
         "  For AY: "    . htmlspecialchars($ay)          . 
-        "\n";
+        "\n");
         
 
 
