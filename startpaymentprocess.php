@@ -9,10 +9,10 @@
 require_once('../../config.php');
 require_once($CFG->libdir . '/formslib.php');
 
-$amount         = required_param('amount',      PARAM_RAW);
-$payee          = required_param('payee',       PARAM_RAW);
-$fees_for       = required_param('fees_for',    PARAM_RAW);
-$ay             = required_param('ay',          PARAM_RAW);
+$amount         = required_param('amount',      PARAM_TEXT);
+$payee          = required_param('payee',       PARAM_TEXT);
+$fees_for       = required_param('fees_for',    PARAM_TEXT);
+$ay             = required_param('ay',          PARAM_TEXT);
 
 echo "Initiate the payment process for the item shown below: \n";
 
