@@ -16,11 +16,6 @@ $ay             = required_param('ay',          PARAM_ALPHA);
 
 echo "Initiate the payment process for the item shown below: \n";
 
-echo    "Amount (Rs): " . htmlspecialchars($amount)     . 
-        "  Payee: "     . htmlspecialchars($payee)      . 
-        "  Fee for: "   . htmlspecialchars($fees_for)   . 
-        "  For AY: "    . htmlspecialchars($ay)          . 
-        "\n";
 
 require_login();
 
