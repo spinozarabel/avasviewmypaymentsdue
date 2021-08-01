@@ -34,16 +34,6 @@ $PAGE->set_url('/blocks/avasviewmypaymentsdue/startpaymentprocess.php', ['amount
                                                                         ]);
 $PAGE->navbar->add('Initiate Payment Process of selected payment');
 
-echo $OUTPUT->header();
-
-
-echo nl2br("Initiate the payment process for the item shown below: \n");
-
-echo nl2br(     "Amount (Rs): " . htmlspecialchars($amount)     . 
-                "  Payee: "     . htmlspecialchars($payee)      . 
-                "  Fee for: "   . htmlspecialchars($fees_for)   . 
-                "  For AY: "    . htmlspecialchars($ay)         . 
-                "\n");
         
 class paymentprocess_form extends moodleform 
 {
@@ -81,6 +71,17 @@ else if ($formdata = $form->get_data())
         error_log(print_r($formdata,true));
         redirect(new \moodle_url('/my'));
 }
+
+echo $OUTPUT->header();
+
+
+echo nl2br("Initiate the payment process for the item shown below: \n");
+
+echo nl2br(     "Amount (Rs): " . htmlspecialchars($amount)     . 
+                "  Payee: "     . htmlspecialchars($payee)      . 
+                "  Fee for: "   . htmlspecialchars($fees_for)   . 
+                "  For AY: "    . htmlspecialchars($ay)         . 
+                "\n");
 
 echo \html_writer::start_tag('div', ['class' => 'no-overflow']);
 $form->display();
