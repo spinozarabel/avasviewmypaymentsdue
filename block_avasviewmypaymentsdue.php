@@ -87,9 +87,15 @@ class block_avasviewmypaymentsdue extends block_list {
                 $fees_for   = $payment["fees_for"];
                 $ay         = $payment["ay"];
 
+                $linkurl    = "https://hset.in/sritoni/avasviewmypaymentsdue/startpaymentprocess.php";
+                $linkurl   .= "?amount=" . $amount . "&payee=" . $payee . "&fees_for=" . $fees_for . "&ay=" . $ay;
+                $linkname   = "Payment Due: ". $amount;
+                $attrs      = ['alt' => $linkname];
+
                 //  create HTML. link($url, $text, array $attributes = null)
                 // add as next element in array for displaying as a list
-                $this->content->items[] = \html_writer::div("$payee Rs.$amount For:$fees_for AY:$ay");
+                $this->content->items[] = \html_writer::link($linkurl, $linkname, $attrs);
+
             }
         }
 
