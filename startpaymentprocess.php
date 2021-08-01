@@ -6,6 +6,11 @@
 
 // defined('MOODLE_INTERNAL') || die();
 
+$amount         = required_param('amount',      PARAM_ALPHA);
+$payee          = required_param('payee',       PARAM_ALPHA);
+$fees_for       = required_param('fees_for',    PARAM_ALPHA);
+$ay             = required_param('ay',          PARAM_ALPHA);
+
 require_once('../../config.php');
 require_once($CFG->libdir . '/formslib.php');
 
